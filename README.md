@@ -55,8 +55,6 @@ CMD ["python", "main.py"]
 
 # 3. Write a yaml file
 
-- What is a yaml file
-
 Our simple ‘barebones’ yaml file: 
 
 ```yaml
@@ -66,8 +64,7 @@ version: "3.9"
 services:
   etl:
     image: "python:3.9"
-    build: 
-				etl/
+    build: etl/
     volumes:
       - './etl/:/app'
     depends_on:
@@ -87,8 +84,6 @@ services:
 
 Docker and docker-compose are very sensitive to the correct folder structure. 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9a567254-28bf-4ba1-b153-34bec405e096/Untitled.png)
-
 # 5. Use docker-compose to run the entire thing with only two commands
 
 Now that we have our yaml file, our Dockerfile and folder structure in order, we can run the entire thing from start to finish with just two commands. First make sure you have navigated to the folder where your yaml file is located and then run: 
@@ -103,17 +98,15 @@ Docker-compose replaces running multiple docker commands and allows us to connec
 
 With your desktop DBeaver open, you can make a connection by clicking the tiny plug in the upper-left corner. Or navigating in the toolbar to Database —> New Database Connection
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2f541933-1d22-4e5f-883e-2051760aa6d0/Untitled.png)
+![Untitled](Dbeaver2.png)
 
 Next we will specify our connection settings:
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0f231a59-a554-452a-b8b3-e7529aac0133/Untitled.png)
+![Alt text](Dbeaver2.png)
 
 Make sure that you change the Port to 5555, as specified in the yaml file, and use the same username and password as in your python script.  Finally, test that the connection works with the ‘Test Connection’. 
 
 Voila! Now you can easily browse, query and modify your data! 
-
-**Picture 
 
 Alternatively, you can also take a look at your data through a psql terminal. 
 
@@ -121,11 +114,7 @@ To do this, run your docker-compose on the background of your terminal with `doc
 
 Once it’s running, type in `docker exec -it [Container ID] psql -U postgres` and now you’re within the psql shell and can run psql commands on the data that you just stored. 
 
-**Picture
-
 *You can find out the ID of the running postgres container with `docker ps` This lists all the running containers. 
-
-When 
 
 # Z. Some potential points of failure
 
@@ -134,7 +123,7 @@ When
 - The name of the folder where your python script and Dockerfile are located has to correspond exactly to the name given to it in the yaml file (in our example both are ‘etl’)
 - Dockerfile named Dockerfile, not dockerfile or any other variation. No file extension
 - Dockerfile located within the etl folder
-- Make sure the **port mapping (hostPort:containerPort)**in our connection engine corresponds to the name we gave to our container running postgres in the yaml file (See point 3)
+- Make sure the **port mapping (hostPort:containerPort)** in our connection engine corresponds to the name we gave to our container running postgres in the yaml file (See point 3)
 
 
 ```python
