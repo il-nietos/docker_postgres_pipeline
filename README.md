@@ -10,7 +10,7 @@ To make this work you will have to install the following programmes:
     - DBeaver is an awesome database management system. You can download it as a desktop application, open source and free to download.
     - DBeaver can connect to several types of databases, here the most popular ones:
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/43f36e73-5eef-4c16-b288-ef6405701afb/Untitled.png)
+    ![Alt text](Dbeaver.png "Optional title")
     
     - It allows you to execute SQL queries, browse and investigate your data and database structure in an easy to-use editor, and much more.
     
