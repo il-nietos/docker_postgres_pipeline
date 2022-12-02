@@ -1,5 +1,5 @@
 
-This project creates a dockerised data pipeline that stores data from a csv file to postgreSQL running in a docker container. We’ll further use DBeaver to interactively query our data. 
+**This project creates a dockerised data pipeline that stores data from a csv file to postgreSQL running in a docker container. We’ll further use DBeaver to interactively query our data.**
 
 # 0. Setup
 
