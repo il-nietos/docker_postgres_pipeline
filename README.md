@@ -123,7 +123,7 @@ Once it’s running, type in `docker exec -it [Container ID] psql -U postgres` a
 - The name of the folder where your python script and Dockerfile are located has to correspond exactly to the name given to it in the yaml file (in our example both are ‘etl’)
 - Dockerfile named Dockerfile, not dockerfile or any other variation. No file extension
 - Dockerfile located within the etl folder
-- Make sure the **port mapping (hostPort:containerPort)** in our connection engine corresponds to the name we gave to our container running postgres in the yaml file (See point 3)
+- Make sure the hostPort (hostPort:containerPort) in our connection engine corresponds to the name we gave to our container running postgres in the yaml file (See point 3)
 
 
 ```python
@@ -133,7 +133,7 @@ def make_connection():
     Make a connection to the database
     '''
     engine = sqlalchemy.create_engine(
-        "postgresql+psycopg2://postgres:password@**database:5432**/postgres")
+        "postgresql+psycopg2://postgres:password@database:5432/postgres")
     return engine
 ```
 
