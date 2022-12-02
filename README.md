@@ -30,7 +30,7 @@ To make this work you will have to install the following programmes:
 
 # 2. Write a Dockerfile for your script
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/45d350f7-3450-40ba-8338-acc87077a1b7/Untitled.png)
+![Alt text](docker.ong.png)
 
 Our very simple Dockerfile will look like this: 
 
