@@ -11,14 +11,15 @@ import os
 root_dir = Path(__file__).parent # 
 
 
-os.chdir('/Users/ilonanietosvaara/Documents/data101')
+# os.chdir('/Users/ilonanietosvaara/Documents/git_repos/docker_postgres_pipeline/pipeline/')
 #print(os.getcwd())
 
 # using psycopg2 as a driver
 
 def make_connection():
-    engine = sqlalchemy.create_engine("postgresql+psycopg2://postgres:password@localhost:5432/postgres")
+    engine = sqlalchemy.create_engine("postgresql+psycopg2://postgres:password@database:5432/postgres")
     return engine
+
 
 def get_data():
     data_dir = root_dir.joinpath('data', 'population.csv')
@@ -28,8 +29,7 @@ def get_data():
 
 def store_data(data):
     engine = make_connection()
-    data.to_sql(name = 'population1', con = engine, if_exists = 'replace', index = False)
-
+    data.to_sql(name = 'population', con = engine, if_exists = 'replace', index = False)
 
 Base = declarative_base()
 

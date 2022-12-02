@@ -3,6 +3,13 @@ version: "3.9"
 # Services
 services:
 
+  etl:
+    image: "python:3.9"
+    build: etl/
+    volumes:
+      - './etl/:/app'
+    depends_on:
+      - database
 
   database:
     image: "postgres:12-alpine"
@@ -11,30 +18,12 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
     ports:
-      - "5432:5432"
-    volumes:
-      - "./database:/var/lib/postgresql/data"
+      - "5555:5432"
+#    volumes:
+#      - "./database:/var/lib/postgresql/data"
     healthcheck:
-      test: ["CMD", "pg_isready -d postgres -U username"]
+      test: ["CMD", "pg_isready -d postgres -U postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
-
-  
-  etl:
-    image: "python:3.9"
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    volumes:
-      - './:/src'
-    depends_on:
-      - database
-    links:
-      - database
-
-
-# Volumes
-volumes:
-  database:
-    driver: local
+      
