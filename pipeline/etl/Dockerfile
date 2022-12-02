@@ -14,4 +14,3 @@ COPY requirements.txt /app
 RUN pip install -r requirements.txt
 
 CMD ["/bin/bash", "-c", "sleep 10 && python3 /app/main.py"]
-#CMD ["python", "main.py"]
