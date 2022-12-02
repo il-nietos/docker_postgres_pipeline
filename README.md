@@ -30,7 +30,7 @@ To make this work you will have to install the following programmes:
 
 # 2. Write a Dockerfile for your script
 
-![Alt text](docker.ong.png)
+![Alt text](docker.png)
 
 Our very simple Dockerfile will look like this: 
 
