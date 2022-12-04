@@ -1,7 +1,7 @@
 
 **This project creates a dockerised data pipeline that stores data from a csv file to postgreSQL running in a docker container. We’ll further use DBeaver to interactively query our data.**
 
-# 0. Setup
+## 0. Setup
 
 To make this work you will have to install the following programmes: 
 
@@ -28,7 +28,7 @@ To make this work you will have to install the following programmes:
 - create a database Schema (i.e define what out table looks like: column names, data types and other specifications)
 - read data from a pandas dataframe into the table
 
-# 2. Write a Dockerfile for your script
+## 2. Write a Dockerfile for your script
 
 ![Alt text](docker2.png "Optional title")
 
@@ -53,7 +53,7 @@ CMD ["python", "main.py"]
 
 *Make sure you name the file exactly as Dockerfile (capital D, no extension) and place it in the same folder as your [main.py](http://main.py) file. 
 
-# 3. Write a yaml file
+## 3. Write a yaml file
 
 Our simple ‘barebones’ yaml file: 
 
@@ -80,11 +80,11 @@ services:
       - "5555:5432"
 ```
 
-# 4. Check your folder structure
+## 4. Check your folder structure
 
 Docker and docker-compose are very sensitive to the correct folder structure. 
 
-# 5. Use docker-compose to run the entire thing with only two commands
+## 5. Use docker-compose to run the entire thing with only two commands
 
 Now that we have our yaml file, our Dockerfile and folder structure in order, we can run the entire thing from start to finish with just two commands. First make sure you have navigated to the folder where your yaml file is located and then run: 
 
@@ -94,7 +94,7 @@ Now that we have our yaml file, our Dockerfile and folder structure in order, we
 
 Docker-compose replaces running multiple docker commands and allows us to connect containers to each other and define an order in which they should run. 
 
-# 6. Make connection to database in DBeaver
+## 6. Make connection to database in DBeaver
 
 With your desktop DBeaver open, you can make a connection by clicking the tiny plug in the upper-left corner. Or navigating in the toolbar to Database —> New Database Connection
 
@@ -116,7 +116,7 @@ Once it’s running, type in `docker exec -it [Container ID] psql -U postgres` a
 
 *You can find out the ID of the running postgres container with `docker ps` This lists all the running containers. 
 
-# Z. Some potential points of failure
+### Z. Some potential points of failure
 
 - Make sure your username and password for postgreSQL are exactly the same when creating the connection engine in your [main.py](http://main.py) file and in the yaml file.
 - Change the psycopg2 in your requirements.txt file to psycopg2-binary. Why? Mysterious to me, but it worked.
@@ -140,5 +140,5 @@ def make_connection():
 - If you are running the script locally (this requires a local installation of postgreSQL), the port mapping has to be [localhost:5432](http://localhost:5432).
 
 
-## To do: 
+### To do: 
 - host data in AWS 
