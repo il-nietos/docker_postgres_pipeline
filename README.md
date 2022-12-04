@@ -21,7 +21,7 @@ To make this work you will have to install the following programmes:
 
 *We won’t need to install a local instance of PostgreSQL since we’ll be installing it *only* within Docker (= pulling the PostgreSQL Docker image to our local machine, and then running it within a container). This is another great advantage of Docker - you won’t need to install local version of each software you use. 
 
-# 1. Read and store data to PostgreSQL with python
+## 1. Read and store data to PostgreSQL with python
 
 1. Use SQLAlchemy to:
 - connect our python script to a postgreSQL server
